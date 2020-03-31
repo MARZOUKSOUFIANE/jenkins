@@ -15,14 +15,16 @@ pipeline {
             }
         }
         stage('Deploy - Staging') {
-    steps {
-        sh './deploy staging'
-        sh './run-smoke-tests'
-    }
-}
-    stage('Deploy - Production') {
-        steps {
-            sh './deploy production'
+            steps {
+                sh './deploy st
+                aging'
+                sh './run-smoke-tests'
+            }
         }
+        stage('Deploy - Production') {
+            steps {
+                sh './deploy production'
+            }
+        }   
     }
 }
